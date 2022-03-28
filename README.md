@@ -47,7 +47,41 @@ catkin_make
 source devel/setup.bash
 roslaunch lego_loam run.launch
 ```
- 
+## Dataset
+- I used the 05 sequence of KITTI dataset. You can also receive the data set and groundtruth files from [KITTI link](http://www.cvlibs.net/datasets/kitti/eval_odometry.php).
+- The extrinsics can be found in the Notes KITTI section below. To generate more bags using other KITTI raw data, you can use the python script provided in "config/doc/kitti2bag". Check the parameters according to the various lidars in *utility.h*.
+- You can run your bag file as below code.
+```
+rosbag play kitti_sequence_05.bag --clock --topics /kitti/velo/pointcloud
+```
+
+## Trajectory Evaluation
+- I used [evo (link)](https://github.com/MichaelGrupp/evo) to evaluate the trajectories.
+- You can install evo using the following command
+```
+pip install evo --upgrade --no-binary evo
+```
+
+- First, you have to modify the directory in **line 342 and 869 of the mapOptimization.cpp** file of src.
+```cpp
+// line 342 in /src/mapOptimization.cpp
+file_obj.open("/home/{your_dir}/{your_file_name}.txt");
+// line 869 in /src/mapOptimization.cpp
+FileObj.open("/home/{your_dir}/{your_file_name}.txt", std::ios::app);
+```
+
+- The following command can be used to evaluate the trajectory.
+```
+evo_traj kitti {your_file_name}.txt --ref={kitti_groundtruth_file_name}.txt -p --plot_mode=xz
+```
+
+- Also, You can use other methods to evaluate your trajectories e.g. metric of trajectory.
+```
+mkdir results
+evo_ape kitti [kitti_file_name].txt [your_file_name].txt -va --plot --plot_mode xz --save_results results/[name].zip
+evo_ape kitti [kitti_file_name].txt [your_file_name].txt -va --plot --plot_mode xz --save_results results/[name]
+```
+
 ## Example
 - Example with KITTI 05 sequence dataset.
 <p align="center"><img src="results/qlego.png" width=900></p>
