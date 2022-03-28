@@ -40,3 +40,4 @@ Lastly, `git clone` this repo(Quatro-LeGO-LOAM) in your workspace and then `catk
  
 ## Example with KITTI 05 seq.
 <p align="center"><img src="results/Merge.png" width=1200></p>
+<p align="center"><img src="results/qlego.png" width=1200></p>
