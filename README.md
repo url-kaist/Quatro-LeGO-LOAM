@@ -39,4 +39,4 @@ CMake Error at quatro/CMakeLists.txt:53 (add_subdirectory):
 Lastly, `git clone` this repo(Quatro-LeGO-LOAM) in your workspace and then `catkin_make`.
  
 ## Example with KITTI 05 seq.
-<p align="center"><img src="results/Merge.png" width=900></p>
+<p align="center"><img src="results/Merge.png" width=1200></p>
