@@ -10,7 +10,7 @@ The code is tested successfully at
 * Linux 18.04 LTS
 * ROS Melodic
 
-## How to Build Quatro
+## Prerequires
 
 - First of all, you need to build [Quatro (link)](https://github.com/url-kaist/quatro).
 * Run the following script. We use [catkin tools](https://catkin-tools.readthedocs.io/en/latest/),
@@ -35,8 +35,16 @@ CMake Error at quatro/CMakeLists.txt:53 (add_subdirectory):
   add_subdirectory given source "~/catkin_ws/build/pmc-src" which
   is not an existing directory.
  ```
- 
-Lastly, `git clone` this repo(Quatro-LeGO-LOAM) in your workspace and then `catkin_make`.
+
+## How to run
+```
+cd ~/catkin_ws/src
+git clone {this repo}
+cd ..
+catkin_make
+source devel/setup.bash
+roslaunch lego_loam run.launch
+```
  
 ## Example
 - Example with KITTI 05 sequence dataset.
