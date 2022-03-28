@@ -55,3 +55,8 @@ roslaunch lego_loam run.launch
 - Trajectory is evaluated by [evo (link)](https://github.com/MichaelGrupp/evo).
 *Quatro-Lego-Loam's Trajectory evaluation showed an error of less than* **10cm** *!!*
 <p align="center"><img src="results/Merge.png" width=900></p>
+
+## Visualize Quatro Process
+- You can visualize Quatro's *source, target, estimation* clouds : `/quatro_src`, `/quatro_tgt`, `/quatro_est`.
+- Below visualization picture is an example. `red : source`, `green : target`, `blue : estimation`
+<p align="center"><img src="results/quatro_process.png" width=900></p>
