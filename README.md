@@ -49,7 +49,7 @@ roslaunch lego_loam run.launch
 ```
 ## Dataset
 - I used the 05 sequence of KITTI dataset. You can also receive the data set and groundtruth files from [KITTI link](http://www.cvlibs.net/datasets/kitti/eval_odometry.php).
-- To generate more bags using other KITTI raw data, you can use the python script provided in "config/doc/kitti2bag". 
+- To generate more bags using other KITTI raw data, you can use the python script [kitti2bag](https://github.com/tomas789/kitti2bag).
 - Check the parameters according to the various lidars in *utility.h*. If you are using KITTI dataset, you can use HDL-64E config.
 - You can run your bag file as below code.
 ```
