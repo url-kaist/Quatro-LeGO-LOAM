@@ -3,6 +3,8 @@
 - For more details for each algorithm, <br>
   Quatro https://github.com/url-kaist/quatro <br>
   LeGO LOAM https://github.com/RobustFieldAutonomyLab/LeGO-LOAM <br>
+- In [Quatro](https://github.com/url-kaist/quatro) registration example, we used fast point feature histogram (FPFH), Patchwork and etc to reduce the computational time of feature extraction & matching, i.e. the front-end of global registration, from tens of seconds to almost 0.2 sec.
+- *But Quatro-LeGO-LOAM uses only the FPFH descriptor to perform feature matching and then obtain a relative pose through Quatro.*
   
 ## Test Env.
 
@@ -10,7 +12,7 @@ The code is tested successfully at
 * Linux 18.04 LTS
 * ROS Melodic
 
-## Prerequires
+## Build Quatro
 
 - First of all, you need to build [Quatro (link)](https://github.com/url-kaist/quatro).
 * Run the following script. We use [catkin tools](https://catkin-tools.readthedocs.io/en/latest/),
