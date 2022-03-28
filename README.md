@@ -12,6 +12,7 @@ The code is tested successfully at
 
 ## How to Build Quatro
 
+- First of all, you need to build [Quatro (link)](https://github.com/url-kaist/quatro).
 * Run the following script. We use [catkin tools](https://catkin-tools.readthedocs.io/en/latest/),
 
 ```
