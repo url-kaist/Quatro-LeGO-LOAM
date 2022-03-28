@@ -50,8 +50,8 @@ roslaunch lego_loam run.launch
  
 ## Example
 - Example with KITTI 05 sequence dataset.
-<p align="center"><img src="results/qlego.png" width=1200></p>
+<p align="center"><img src="results/qlego.png" width=900></p>
 
 - Trajectory is evaluated by [evo (link)](https://github.com/MichaelGrupp/evo).
-<p align="center"><img src="results/Merge.png" width=1200></p>
+<p align="center"><img src="results/Merge.png" width=900></p>
 
