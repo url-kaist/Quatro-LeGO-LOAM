@@ -55,3 +55,7 @@ roslaunch lego_loam run.launch
 - Trajectory is evaluated by [evo (link)](https://github.com/MichaelGrupp/evo).
 <p align="center"><img src="results/Merge.png" width=900></p>
 
+## Contact
+- Daebeom Kim : `ted97k@naver.com`
+- Beomsoo Kim : `qjatn1208@naver.com`
+- Hyungtae Lim : `shapelim@kaist.ac.kr`
