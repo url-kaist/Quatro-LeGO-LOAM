@@ -101,6 +101,10 @@ extern cost string fileDirectory = "/home/{your_dir}"
 ## Example
 - Compare LeGO-LOAM and Quatro-LeGO-LOAM in KITTI 05 dataset. We used **cloudcompare** to visualize pcl.
 <p align="center"><img src="results/kitti_compare.gif" width=600></p>
+You can download cloudcompare with folloing command.
+```
+snap install cloudcompare
+```
 
 - Trajectory is evaluated by [evo (link)](https://github.com/MichaelGrupp/evo).
 *Quatro-Lego-Loam's Trajectory evaluation showed an error of less than* **10cm** *!!*
