@@ -23,7 +23,7 @@ Quatro:
         rot_cost_diff_thr: 0.00011
     
 icp:
-    max_corr_dist: 0.3
+    max_corr_dist: 1.0
     max_iter: 1000
     tf_eps: 0.0000001
     euc_eps: 0.0000001
