@@ -99,8 +99,8 @@ extern cost string fileDirectory = "/home/{your_dir}"
 ```
 
 ## Example
-- Example with KITTI 05 sequence dataset.
-<p align="center"><img src="results/qlego.png" width=900></p>
+- Compare LeGO-LOAM and Quatro-LeGO-LOAM in KITTI 05 dataset. We used **cloudcompare** to visualize pcl.
+<p align="center"><img src="results/KITTI_compare.mp4" width=900></p>
 
 - Trajectory is evaluated by [evo (link)](https://github.com/MichaelGrupp/evo).
 *Quatro-Lego-Loam's Trajectory evaluation showed an error of less than* **10cm** *!!*
