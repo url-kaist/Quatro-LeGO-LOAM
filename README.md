@@ -72,11 +72,11 @@ rosbag play {your_bag}.bag --clock --topics {topic_message}
 pip install evo --upgrade --no-binary evo
 ```
 
-- First, you have to modify the directory in **line 342 and 869 of the mapOptimization.cpp** file of src.
+- First, you have to modify the directory in **line 342 and 895 of the mapOptimization.cpp** file of src.
 ```cpp
 // line 342 in /src/mapOptimization.cpp
 file_obj.open("/home/{your_dir}/{your_file_name}.txt");
-// line 869 in /src/mapOptimization.cpp
+// line 895 in /src/mapOptimization.cpp
 FileObj.open("/home/{your_dir}/{your_file_name}.txt", std::ios::app);
 ```
 
@@ -91,6 +91,8 @@ mkdir results
 evo_ape kitti [kitti_file_name].txt [your_file_name].txt -va --plot --plot_mode xz --save_results results/[name].zip
 evo_ape kitti [kitti_file_name].txt [your_file_name].txt -va --plot --plot_mode xz --save_results results/[name]
 ```
+
+- You can also save final PCD file. Modify your `fileDirectory` in `utility.h` file.
 
 ## Example
 - Example with KITTI 05 sequence dataset.
