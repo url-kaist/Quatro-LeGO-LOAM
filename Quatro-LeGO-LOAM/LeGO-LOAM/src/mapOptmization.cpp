@@ -762,6 +762,32 @@ public:
         imuPitch[imuPointerLast] = pitch;
     }
 
+    void saveMapService()
+        {
+        // create directory and remove old files;
+        int unused = system((std::string("exec rm -r ") + fileDirectory).c_str());
+        unused = system((std::string("mkdir -p ") + fileDirectory).c_str());
+        // save key frame transformations
+        pcl::io::savePCDFileBinary(fileDirectory + "/trajectory.pcd", *cloudKeyPoses3D);
+        pcl::io::savePCDFileBinary(fileDirectory + "/transformations.pcd", *cloudKeyPoses6D);
+        // extract global point cloud map
+        pcl::PointCloud<PointType>::Ptr globalCornerCloud(new pcl::PointCloud<PointType>());
+        pcl::PointCloud<PointType>::Ptr globalCornerCloudDS(new pcl::PointCloud<PointType>());
+        pcl::PointCloud<PointType>::Ptr globalSurfCloud(new pcl::PointCloud<PointType>());
+        pcl::PointCloud<PointType>::Ptr globalSurfCloudDS(new pcl::PointCloud<PointType>());
+        pcl::PointCloud<PointType>::Ptr globalMapCloud(new pcl::PointCloud<PointType>());
+        for (int i = 0; i < (int)cloudKeyPoses3D->size(); i++) {
+            *globalCornerCloud += *transformPointCloud(cornerCloudKeyFrames[i],  &cloudKeyPoses6D->points[i]);
+            *globalSurfCloud   += *transformPointCloud(surfCloudKeyFrames[i],    &cloudKeyPoses6D->points[i]);
+        }
+
+        // save global point cloud map
+        *globalMapCloud += *globalCornerCloud;
+        *globalMapCloud += *globalSurfCloud;
+
+        pcl::io::savePCDFileBinary(fileDirectory + "/GlobalMap.pcd", *globalMapCloud);
+    }
+
     void publishTF(){
 
         geometry_msgs::Quaternion geoQuat = tf::createQuaternionMsgFromRollPitchYaw
@@ -876,8 +902,9 @@ public:
             FileObj.close();
         }
 
+        saveMapService();
 
-
+/*
         // save final point cloud
         pcl::io::savePCDFileASCII(fileDirectory+"finalCloud.pcd", *globalMapKeyFramesDS);
 
@@ -904,6 +931,7 @@ public:
         pcl::io::savePCDFileASCII(fileDirectory+"cornerMap.pcd", *cornerMapCloudDS);
         pcl::io::savePCDFileASCII(fileDirectory+"surfaceMap.pcd", *surfaceMapCloudDS);
         pcl::io::savePCDFileASCII(fileDirectory+"trajectory.pcd", *cloudKeyPoses3D);
+*/
     }
 
     void publishGlobalMap(){
