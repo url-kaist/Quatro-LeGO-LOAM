@@ -93,6 +93,10 @@ evo_ape kitti [kitti_file_name].txt [your_file_name].txt -va --plot --plot_mode 
 ```
 
 - You can also save final PCD file. Modify your `fileDirectory` in `utility.h` file.
+```cpp
+// at 60 line of utility.h
+extern cost string fileDirectory = "/home/{your_dir}"
+```
 
 ## Example
 - Example with KITTI 05 sequence dataset.
