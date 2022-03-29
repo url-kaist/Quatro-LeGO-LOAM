@@ -48,12 +48,21 @@ source devel/setup.bash
 roslaunch lego_loam run.launch
 ```
 ## Dataset
-- I used the 05 sequence of KITTI dataset. You can also receive the data set and groundtruth files from [KITTI link](http://www.cvlibs.net/datasets/kitti/eval_odometry.php).
-- To generate more bags using other KITTI raw data, you can use the python script [kitti2bag](https://github.com/tomas789/kitti2bag).
-- Check the parameters according to the various lidars in *utility.h*. If you are using KITTI dataset, you can use HDL-64E config.
+### KITTI 05 sequence dataset
+- Download KITTI 05 sequence dataset with following command.
+```
+wget {여기에 URL server link를 넣어주세용}
+```
+
+### MulRan dataset
+- You can also download [MulRan](https://sites.google.com/view/mulran-pr/home?authuser=0) dataset.
+
+### Else
+- To generate more bags using other [KITTI raw data](http://www.cvlibs.net/datasets/kitti/eval_odometry.php), you can use the python script [kitti2bag](https://github.com/tomas789/kitti2bag).
+- Check the parameters according to the various lidars in *utility.h* : `VLP-16` `HDL-32E` `HDL-64E` `VLS-128` `OS1-16` `OS1-64` `OS0-128`
 - You can run your bag file as below code.
 ```
-rosbag play kitti_sequence_05.bag --clock --topics /kitti/velo/pointcloud
+rosbag play {your_bag}.bag --clock --topics {topic_message}
 ```
 
 ## Trajectory Evaluation
