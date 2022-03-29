@@ -152,7 +152,7 @@ extern const int   surroundingKeyframeSearchNum = 30; // submap size (when loop 
 // history key frames (history submap for loop closure)
 extern const float historyKeyframeSearchRadius = 8.0; // key frame that is within n meters from current pose will be considerd for loop closure
 extern const int   historyKeyframeSearchNum = 25; // 2n+1 number of hostory key frames will be fused into a submap for loop closure
-extern const float historyKeyframeFitnessScore = 0.1; // the smaller the better alignment
+extern const float historyKeyframeFitnessScore = 0.3; // the smaller the better alignment
 
 extern const float globalMapVisualizationSearchRadius = 100.0; // key frames with in n meters will be visualized
 
