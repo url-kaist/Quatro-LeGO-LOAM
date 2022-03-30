@@ -108,7 +108,6 @@ snap install cloudcompare
 ```
 
 - Trajectory is evaluated by [evo (link)](https://github.com/MichaelGrupp/evo).
-- Quatro-Lego-Loam's Trajectory evaluation showed an error of less than **10cm** !!
 
 ### Compare PointCloud 
 
@@ -119,6 +118,7 @@ snap install cloudcompare
 |MulRan KAIST|![PointCloud](results/kitti_compare.gif?w=350)|
 
 ### Compare Trajectory with GroundTruth
+- Quatro-Lego-Loam's Trajectory evaluation showed an error of less than **10cm** !!
 
 |Dataset|scene1|scene2|
 |:-:|:-:|:-:|
