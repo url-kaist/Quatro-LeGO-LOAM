@@ -118,13 +118,11 @@ snap install cloudcompare
 |MulRan DCC|![PointCloud](results/kitti_compare.gif?w=350)|
 |MulRan KAIST|![PointCloud](results/kitti_compare.gif?w=350)|
 
-### Compare Trajectory 
+### Compare Trajectory with GroundTruth
 
 |Dataset|scene1|scene2|
 |:-:|:-:|:-:|
 |KITTI 05 seq.|![scene1](results/eva_whole.png?w=350)|![scene2](results/eva_center2.png?w=350)|
-|MulRan DCC|![scene1](results/eva_whole.png?w=350)|![scene2](results/eva_center2.png?w=350)|
-|MulRan KAIST|![scene1](results/eva_whole.png?w=350)|![scene2](results/eva_center2.png?w=350)|
 
 ## Visualize Quatro Process
 - You can visualize Quatro's *source, target, estimation* clouds : `/quatro_src`, `/quatro_tgt`, `/quatro_est`.
