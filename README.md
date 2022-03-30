@@ -56,6 +56,7 @@ wget {여기에 URL server link를 넣어주세용}
 
 ### MulRan dataset
 - You can also download [MulRan](https://sites.google.com/view/mulran-pr/home?authuser=0) dataset.
+- You need [File Player](https://github.com/irapkaist/file_player_mulran) for **MulRan dataset**. 
 
 ### Else
 - To generate more bags using other [KITTI raw data](http://www.cvlibs.net/datasets/kitti/eval_odometry.php), you can use the python script [kitti2bag](https://github.com/tomas789/kitti2bag).
