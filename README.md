@@ -100,21 +100,28 @@ extern cost string fileDirectory = "/home/{your_dir}"
 ```
 
 ## Example
-- Compare LeGO-LOAM and Quatro-LeGO-LOAM with KITTI 05 dataset. We used **cloudcompare** to visualize pcl.
-<p align="center"><img src="results/kitti_compare.gif" width=600></p>
-
+- Compare LeGO-LOAM and Quatro-LeGO-LOAM with KITTI, MulRan datasets. We used **cloudcompare** to visualize pcl.
 - You can download cloudcompare with folloing command.
 
 ```
 snap install cloudcompare
 ```
 
-<br>
-
 - Trajectory is evaluated by [evo (link)](https://github.com/MichaelGrupp/evo).
+
+### KITTI Dataset (05 seq.)
+<p align="center"><img src="results/kitti_compare.gif" width=600></p>
+
+<br>
 
 - Quatro-Lego-Loam's Trajectory evaluation showed an error of less than **10cm** !!
 <p align="center"><img src="results/Merge.png" width=600></p>
+
+### MulRan Dataset (DCC)
+
+
+### MulRan Dataset (KAIST)
+
 
 ## Visualize Quatro Process
 - You can visualize Quatro's *source, target, estimation* clouds : `/quatro_src`, `/quatro_tgt`, `/quatro_est`.
