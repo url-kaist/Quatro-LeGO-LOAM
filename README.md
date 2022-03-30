@@ -109,6 +109,10 @@ snap install cloudcompare
 
 - Trajectory is evaluated by [evo (link)](https://github.com/MichaelGrupp/evo).
 
+|KITTI(05 seq.)|MulRan(DCC)|MulRan(KAIST)|
+|:-:|:-:|:-:|
+|![KITTI(05 seq.)](results/kitti_compare.gif?w=600)|![MulRan(DCC)]()|![MulRan(KAIST)]()|
+
 ### KITTI Dataset (05 seq.)
 <p align="center"><img src="results/kitti_compare.gif" width=600></p>
 
