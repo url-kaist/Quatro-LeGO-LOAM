@@ -68,6 +68,7 @@ rosbag play {your_bag}.bag --clock --topics {topic_message}
 ## Trajectory Evaluation
 - I used [evo (link)](https://github.com/MichaelGrupp/evo) to evaluate the trajectories.
 - You can install evo using the following command
+
 ```
 pip install evo --upgrade --no-binary evo
 ```
