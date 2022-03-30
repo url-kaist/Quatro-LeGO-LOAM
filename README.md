@@ -110,12 +110,21 @@ snap install cloudcompare
 - Trajectory is evaluated by [evo (link)](https://github.com/MichaelGrupp/evo).
 - Quatro-Lego-Loam's Trajectory evaluation showed an error of less than **10cm** !!
 
-|Dataset|KITTI(05 seq.)|MulRan(DCC)|MulRan(KAIST)|
-|:-:|:-:|:-:|:-:|
-|PCD|![KITTI(05 seq.)](results/kitti_compare.gif?w=350)|![MulRan(DCC)](results/kitti_compare.gif?w=350)|![MulRan(KAIST)](results/kitti_compare.gif?w=350)|
-|evo|![KITTI(05 seq.)](results/eva_whole.png?w=350)|![MulRan(DCC)](results/eva_whole.png?w=350)|![MulRan(KAIST)](results/eva_whole.png?w=350)|
-|evo|![KITTI(05 seq.)](results/eva_center2.png?w=350)|![MulRan(DCC)](results/eva_center2.png?w=350)|![MulRan(KAIST)](results/eva_center2.png?w=350)|
+### Compare PointCloud 
 
+|Dataset|PointCloud|
+|:-:|:-:|
+|KITTI 05 seq.|![PointCloud](results/kitti_compare.gif?w=350)|
+|MulRan DCC|![PointCloud](results/kitti_compare.gif?w=350)|
+|MulRan KAIST|![PointCloud](results/kitti_compare.gif?w=350)|
+
+### Compare Trajectory 
+
+|Dataset|scene1|scene2|
+|:-:|:-:|:-:|
+|KITTI 05 seq.|![scene1](results/eva_whole.png?w=350)|![scene2](results/eva_center2.png?w=350)|
+|MulRan DCC|![scene1](results/eva_whole.png?w=350)|![scene2](results/eva_center2.png?w=350)|
+|MulRan KAIST|![scene1](results/eva_whole.png?w=350)|![scene2](results/eva_center2.png?w=350)|
 
 ## Visualize Quatro Process
 - You can visualize Quatro's *source, target, estimation* clouds : `/quatro_src`, `/quatro_tgt`, `/quatro_est`.
