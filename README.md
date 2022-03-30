@@ -112,8 +112,8 @@ snap install cloudcompare
 
 |Dataset|KITTI(05 seq.)|MulRan(DCC)|MulRan(KAIST)|
 |:-:|:-:|:-:|:-:|
-|PointCloud|![KITTI(05 seq.)](results/kitti_compare.gif?w=350)|![MulRan(DCC)]()|![MulRan(KAIST)]()|
-|Trajectory|![KITTI(05 seq.)](results/Merge.png?w=350)|![MulRan(DCC)]()|![MulRan(KAIST)]()|
+|PointCloud|![KITTI(05 seq.)](results/kitti_compare.gif?w=350)|![MulRan(DCC)](results/kitti_compare.gif?w=350)|![MulRan(KAIST)](results/kitti_compare.gif?w=350)|
+|Trajectory|![KITTI(05 seq.)](results/Merge.png?w=350)|![MulRan(DCC)](results/kitti_compare.gif?w=350)|![MulRan(KAIST)](results/kitti_compare.gif?w=350)|
 
 
 ## Visualize Quatro Process
