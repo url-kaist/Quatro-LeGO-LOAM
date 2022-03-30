@@ -108,21 +108,12 @@ snap install cloudcompare
 ```
 
 - Trajectory is evaluated by [evo (link)](https://github.com/MichaelGrupp/evo).
+- Quatro-Lego-Loam's Trajectory evaluation showed an error of less than **10cm** !!
 
 |KITTI(05 seq.)|MulRan(DCC)|MulRan(KAIST)|
 |:-:|:-:|:-:|
-|![KITTI(05 seq.)](results/kitti_compare.gif?w=600)|![MulRan(DCC)]()|![MulRan(KAIST)]()|
-
-### KITTI Dataset (05 seq.)
-<p align="center"><img src="results/kitti_compare.gif" width=600></p>
-
-- Quatro-Lego-Loam's Trajectory evaluation showed an error of less than **10cm** !!
-<p align="center"><img src="results/Merge.png" width=600></p>
-
-### MulRan Dataset (DCC)
-
-
-### MulRan Dataset (KAIST)
+|![KITTI(05 seq.)](results/kitti_compare.gif?w=350)|![MulRan(DCC)]()|![MulRan(KAIST)]()|
+|![KITTI(05 seq.)](results/Merge.png?w=350)|![MulRan(DCC)]()|![MulRan(KAIST)]()|
 
 
 ## Visualize Quatro Process
