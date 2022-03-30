@@ -113,8 +113,8 @@ snap install cloudcompare
 |Dataset|KITTI(05 seq.)|MulRan(DCC)|MulRan(KAIST)|
 |:-:|:-:|:-:|:-:|
 |PCD|![KITTI(05 seq.)](results/kitti_compare.gif?w=350)|![MulRan(DCC)](results/kitti_compare.gif?w=350)|![MulRan(KAIST)](results/kitti_compare.gif?w=350)|
-|evo|![KITTI(05 seq.)](results/eva_whole.png?w=350)|![MulRan(DCC)](results/kitti_compare.gif?w=350)|![MulRan(KAIST)](results/kitti_compare.gif?w=350)|
-|evo|![KITTI(05 seq.)](results/eva_center2.png?w=350)|![MulRan(DCC)](results/kitti_compare.gif?w=350)|![MulRan(KAIST)](results/kitti_compare.gif?w=350)|
+|evo|![KITTI(05 seq.)](results/eva_whole.png?w=350)|![MulRan(DCC)](results/eva_whole.png?w=350)|![MulRan(KAIST)](results/eva_whole.png?w=350)|
+|evo|![KITTI(05 seq.)](results/eva_center2.png?w=350)|![MulRan(DCC)](results/eva_center2.png?w=350)|![MulRan(KAIST)](results/eva_center2.png?w=350)|
 
 
 ## Visualize Quatro Process
