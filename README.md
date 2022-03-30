@@ -112,8 +112,6 @@ snap install cloudcompare
 ### KITTI Dataset (05 seq.)
 <p align="center"><img src="results/kitti_compare.gif" width=600></p>
 
-<br>
-
 - Quatro-Lego-Loam's Trajectory evaluation showed an error of less than **10cm** !!
 <p align="center"><img src="results/Merge.png" width=600></p>
 
