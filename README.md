@@ -111,7 +111,7 @@ snap install cloudcompare
 - Quatro-Lego-Loam's Trajectory evaluation showed an error of less than **10cm** !!
 
 |Dataset|KITTI(05 seq.)|MulRan(DCC)|MulRan(KAIST)|
-|:=:|:-:|:-:|:-:|
+|:-:|:-:|:-:|:-:|
 |PointCloud|![KITTI(05 seq.)](results/kitti_compare.gif?w=350)|![MulRan(DCC)]()|![MulRan(KAIST)]()|
 |Trajectory|![KITTI(05 seq.)](results/Merge.png?w=350)|![MulRan(DCC)]()|![MulRan(KAIST)]()|
 
