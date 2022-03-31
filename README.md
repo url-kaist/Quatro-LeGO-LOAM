@@ -54,10 +54,6 @@ roslaunch lego_loam run.launch
 wget {여기에 URL server link를 넣어주세용}
 ```
 
-### MulRan dataset
-- You can also download [MulRan](https://sites.google.com/view/mulran-pr/home?authuser=0) dataset.
-- You need [File Player](https://github.com/irapkaist/file_player_mulran) for **MulRan dataset**. 
-
 ### Else
 - To generate more bags using other [KITTI raw data](http://www.cvlibs.net/datasets/kitti/eval_odometry.php), you can use the python script [kitti2bag](https://github.com/tomas789/kitti2bag).
 - Check the parameters according to the various lidars in *utility.h* : `VLP-16` `HDL-32E` `HDL-64E` `VLS-128` `OS1-16` `OS1-64` `OS0-128`
@@ -101,7 +97,7 @@ extern cost string fileDirectory = "/home/{your_dir}"
 ```
 
 ## Example
-- Compare LeGO-LOAM and Quatro-LeGO-LOAM with KITTI, MulRan datasets. We used **cloudcompare** to visualize pcl.
+- Compare LeGO-LOAM and Quatro-LeGO-LOAM with KITTI 05 dataset. We used **cloudcompare** to visualize pcl.
 - You can download cloudcompare with folloing command.
 
 ```
@@ -115,8 +111,6 @@ snap install cloudcompare
 |Dataset|PointCloud|
 |:-:|:-:|
 |KITTI 05 seq.|![PointCloud](results/kitti_compare.gif?w=350)|
-|MulRan DCC|![PointCloud](results/kitti_compare.gif?w=350)|
-|MulRan KAIST|![PointCloud](results/kitti_compare.gif?w=350)|
 
 ### Compare Trajectory with GroundTruth
 - Quatro-Lego-Loam's Trajectory evaluation showed an error of less than **10cm** !!
