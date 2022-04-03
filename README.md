@@ -5,7 +5,7 @@
   LeGO LOAM https://github.com/RobustFieldAutonomyLab/LeGO-LOAM <br>
 - In [Quatro](https://github.com/url-kaist/quatro) registration example, we used fast point feature histogram (FPFH), Patchwork and etc to reduce the computational time of feature extraction & matching, i.e. the front-end of global registration, from tens of seconds to almost 0.2 sec.
 - *But Quatro-LeGO-LOAM uses only the FPFH descriptor to perform feature matching and then obtain a relative pose through Quatro.*
-- **LeGO-LOAM has a large drift, so this is accumulated in large scale maps. For this reason, loop detection using Radius-Search may not generate the loop closure constraint properly. Therefore, if the drift is larger than the used KITTI 05 sequence, it is better to use another descriptor or another Odometry method. Then, You can use [Quatro-SC-LeGO-LOAM]() or [Quatro-Faster-LIO]() alterlatively.**
+- **LeGO-LOAM has a large drift, so this is accumulated in large scale maps. For this reason, loop detection using Radius-Search may not generate the loop closure constraint properly. Therefore, if the drift is larger than the used KITTI 05 sequence, it is better to use another descriptor or another Odometry method. Then, You can use [Quatro-SC-LeGO-LOAM](https://github.com/kimdaebeom/Quatro-SC-LeGO-LOAM) or [Quatro-Faster-LIO](https://github.com/kimdaebeom/Quatro-Faster-Lio) alterlatively.**
   
 ## Test Env.
 
