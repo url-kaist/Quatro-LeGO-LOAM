@@ -10,7 +10,7 @@
 
 #include "cloud_msgs/cloud_info.h"
 
-#include <opencv/cv.h>
+#include <opencv2/opencv.hpp>
 
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
@@ -54,10 +54,12 @@ typedef pcl::PointXYZI  PointType;
 // extern const string pointCloudTopic = "/velodyne_points";
 // extern const string imuTopic = "/imu/data";
 extern const string pointCloudTopic = "/kitti/velo/pointcloud"; //  for KITTI
-extern const string imuTopic = "/kitti/oxts/imu";
+extern const string imuTopic = "/imu"; // don't use imu data
 
 // Save pcd
-extern const string fileDirectory = "/home/beom/url/lego_loam_pcd/";
+extern const string pcdDirectory = "/home/url-intern/url/lego_loam_pcd/";
+// Save trajectory txt file
+extern const string traDirectory = "/home/url-intern/url/lego_loam_trajectory/";
 
 // Using velodyne cloud "ring" channel for image projection (other lidar may have different name for this channel, change "PointXYZIR" below)
 extern const bool useCloudRing = false; // if true, ang_res_y and ang_bottom are not used
@@ -150,7 +152,7 @@ extern const float nearestFeatureSearchSqDist = 25;
 extern const float surroundingKeyframeSearchRadius = 30.0; // key frame that is within n meters from current pose will be considerd for scan-to-map optimization (when loop closure disabled)
 extern const int   surroundingKeyframeSearchNum = 30; // submap size (when loop closure enabled)
 // history key frames (history submap for loop closure)
-extern const float historyKeyframeSearchRadius = 8.0; // key frame that is within n meters from current pose will be considerd for loop closure
+extern const float historyKeyframeSearchRadius = 8.5; // key frame that is within n meters from current pose will be considerd for loop closure
 extern const int   historyKeyframeSearchNum = 25; // 2n+1 number of hostory key frames will be fused into a submap for loop closure
 extern const float historyKeyframeFitnessScore = 0.3; // the smaller the better alignment
 
