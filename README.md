@@ -11,8 +11,8 @@
 ## Test Env.
 
 The code is tested successfully at
-* Ubuntu 18.04 LTS + ROS Melodic [link](https://github.com/kimdaebeom/Quatro-LeGO-LOAM/tree/main) 
-* Ubuntu 20.04 LTS + ROS Noetic [current branch]() 
+* Ubuntu 18.04 LTS + ROS Melodic [main branch](https://github.com/kimdaebeom/Quatro-LeGO-LOAM/tree/main) 
+* Ubuntu 20.04 LTS + ROS Noetic [noetic branch](https://github.com/kimdaebeom/Quatro-LeGO-LOAM/tree/noetic)
 
 ## Build Quatro
 
