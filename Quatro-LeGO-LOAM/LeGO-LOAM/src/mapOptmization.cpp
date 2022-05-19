@@ -339,7 +339,7 @@ public:
         allocateMemory();
 
         std::ofstream file_obj;
-        file_obj.open("/home/beom/url/evaluate/stamped_traj_estimate.txt");
+        file_obj.open(traDirectory + "stamped_traj_estimate.txt");
         file_obj.close();
     }
 
@@ -765,11 +765,11 @@ public:
     void saveMapService()
         {
         // create directory and remove old files;
-        int unused = system((std::string("exec rm -r ") + fileDirectory).c_str());
-        unused = system((std::string("mkdir -p ") + fileDirectory).c_str());
+        int unused = system((std::string("exec rm -r ") + pcdDirectory).c_str());
+        unused = system((std::string("mkdir -p ") + pcdDirectory).c_str());
         // save key frame transformations
-        pcl::io::savePCDFileBinary(fileDirectory + "/trajectory.pcd", *cloudKeyPoses3D);
-        pcl::io::savePCDFileBinary(fileDirectory + "/transformations.pcd", *cloudKeyPoses6D);
+        pcl::io::savePCDFileBinary(pcdDirectory + "/trajectory.pcd", *cloudKeyPoses3D);
+        pcl::io::savePCDFileBinary(pcdDirectory + "/transformations.pcd", *cloudKeyPoses6D);
         // extract global point cloud map
         pcl::PointCloud<PointType>::Ptr globalCornerCloud(new pcl::PointCloud<PointType>());
         pcl::PointCloud<PointType>::Ptr globalCornerCloudDS(new pcl::PointCloud<PointType>());
@@ -785,7 +785,7 @@ public:
         *globalMapCloud += *globalCornerCloud;
         *globalMapCloud += *globalSurfCloud;
 
-        pcl::io::savePCDFileBinary(fileDirectory + "/GlobalMap.pcd", *globalMapCloud);
+        pcl::io::savePCDFileBinary(pcdDirectory + "/GlobalMap.pcd", *globalMapCloud);
     }
 
     void publishTF(){
@@ -892,7 +892,7 @@ public:
             eigenPose(2,3) = cloudKeyPoses6D->points[i].z;
 
             std::ofstream FileObj;
-            FileObj.open("/home/beom/url/evaluate/stamped_traj_estimate.txt", std::ios::app);
+            FileObj.open(traDirectory + "stamped_traj_estimate.txt", std::ios::app);
 
             FileObj << std::fixed << std::setprecision(8)
                     << eigenPose(0,0) << " " << eigenPose(0,1) << " " << eigenPose(0,2) << " " << eigenPose(0,3)
@@ -903,35 +903,6 @@ public:
         }
 
         saveMapService();
-
-/*
-        // save final point cloud
-        pcl::io::savePCDFileASCII(fileDirectory+"finalCloud.pcd", *globalMapKeyFramesDS);
-
-        string cornerMapString = "/tmp/cornerMap.pcd";
-        string surfaceMapString = "/tmp/surfaceMap.pcd";
-        string trajectoryString = "/tmp/trajectory.pcd";
-
-        pcl::PointCloud<PointType>::Ptr cornerMapCloud(new pcl::PointCloud<PointType>());
-        pcl::PointCloud<PointType>::Ptr cornerMapCloudDS(new pcl::PointCloud<PointType>());
-        pcl::PointCloud<PointType>::Ptr surfaceMapCloud(new pcl::PointCloud<PointType>());
-        pcl::PointCloud<PointType>::Ptr surfaceMapCloudDS(new pcl::PointCloud<PointType>());
-        
-        for(int i = 0; i < cornerCloudKeyFrames.size(); i++) {
-            *cornerMapCloud  += *transformPointCloud(cornerCloudKeyFrames[i],   &cloudKeyPoses6D->points[i]);
-    	    *surfaceMapCloud += *transformPointCloud(surfCloudKeyFrames[i],     &cloudKeyPoses6D->points[i]);
-    	    *surfaceMapCloud += *transformPointCloud(outlierCloudKeyFrames[i],  &cloudKeyPoses6D->points[i]);
-        }
-
-        downSizeFilterCorner.setInputCloud(cornerMapCloud);
-        downSizeFilterCorner.filter(*cornerMapCloudDS);
-        downSizeFilterSurf.setInputCloud(surfaceMapCloud);
-        downSizeFilterSurf.filter(*surfaceMapCloudDS);
-
-        pcl::io::savePCDFileASCII(fileDirectory+"cornerMap.pcd", *cornerMapCloudDS);
-        pcl::io::savePCDFileASCII(fileDirectory+"surfaceMap.pcd", *surfaceMapCloudDS);
-        pcl::io::savePCDFileASCII(fileDirectory+"trajectory.pcd", *cloudKeyPoses3D);
-*/
     }
 
     void publishGlobalMap(){
@@ -1128,7 +1099,7 @@ public:
         icp.setInputTarget(nearHistorySurfKeyFrameCloudDS);
         pcl::PointCloud<PointType>::Ptr unused_result(new pcl::PointCloud<PointType>());
         icp.align(*unused_result);
-
+        std::cout << "fitness score is " << icp.getFitnessScore() << "!!" << std::endl;
         if (icp.hasConverged() == false || icp.getFitnessScore() > historyKeyframeFitnessScore)
             return;
         // publish corrected cloud
@@ -1156,7 +1127,7 @@ public:
 
         float x, y, z, roll, pitch, yaw;
         Eigen::Affine3f correctionCameraFrame;
-        correctionCameraFrame = tfMat; // get transformation in camera frame (because points are in camera frame)
+        correctionCameraFrame = tfMat; // get transformation in /camera frame (because points are in /camera frame)
         pcl::getTranslationAndEulerAngles(correctionCameraFrame, x, y, z, roll, pitch, yaw);
         Eigen::Affine3f correctionLidarFrame = pcl::getTransformation(z, x, y, yaw, roll, pitch);
         // transform from world origin to wrong pose
@@ -1168,15 +1139,18 @@ public:
         gtsam::Pose3 poseTo = pclPointTogtsamPose3(cloudKeyPoses6D->points[closestHistoryFrameID]);
         gtsam::Vector Vector6(6);
         float noiseScore = icp.getFitnessScore();
-        // float noiseScore = 0.5;
-        Vector6 << noiseScore, noiseScore, noiseScore, noiseScore, noiseScore, noiseScore;
+        float tmpNoiseScore = noiseScore + 0.3;
+        Vector6 << noiseScore, noiseScore, noiseScore, tmpNoiseScore, tmpNoiseScore, noiseScore;
         constraintNoise = noiseModel::Diagonal::Variances(Vector6);
         /* 
         	add constraints
         	*/
         std::lock_guard<std::mutex> lock(mtx);
-        gtSAMgraph.add(BetweenFactor<Pose3>(latestFrameIDLoopCloure, closestHistoryFrameID, poseFrom.between(poseTo)));     // Non-Noisemodel is ok... 
+        gtSAMgraph.add(BetweenFactor<Pose3>(latestFrameIDLoopCloure, closestHistoryFrameID, poseFrom.between(poseTo), constraintNoise));     // Non-Noisemodel is ok... 
         isam->update(gtSAMgraph);
+        isam->update();
+        isam->update();
+        isam->update();
         isam->update();
         gtSAMgraph.resize(0);
 
@@ -1246,12 +1220,12 @@ public:
         return quatro_output;
     }
 
-    Pose3 pclPointTogtsamPose3(PointTypePose thisPoint){ // camera frame to lidar frame
+    Pose3 pclPointTogtsamPose3(PointTypePose thisPoint){ // /camera frame to lidar frame
     	return Pose3(Rot3::RzRyRx(double(thisPoint.yaw), double(thisPoint.roll), double(thisPoint.pitch)),
                            Point3(double(thisPoint.z),   double(thisPoint.x),    double(thisPoint.y)));
     }
 
-    Eigen::Affine3f pclPointToAffine3fCameraToLidar(PointTypePose thisPoint){ // camera frame to lidar frame
+    Eigen::Affine3f pclPointToAffine3fCameraToLidar(PointTypePose thisPoint){ // /camera frame to lidar frame
     	return pcl::getTransformation(thisPoint.z, thisPoint.x, thisPoint.y, thisPoint.yaw, thisPoint.roll, thisPoint.pitch);
     }
 
@@ -1722,7 +1696,7 @@ public:
         thisPose6D.intensity = thisPose3D.intensity; // this can be used as index
         thisPose6D.roll  = latestEstimate.rotation().pitch();
         thisPose6D.pitch = latestEstimate.rotation().yaw();
-        thisPose6D.yaw   = latestEstimate.rotation().roll(); // in camera frame
+        thisPose6D.yaw   = latestEstimate.rotation().roll(); // in /camera frame
         thisPose6D.time = timeLaserOdometry;
         cloudKeyPoses6D->push_back(thisPose6D);
         /**
@@ -1744,11 +1718,11 @@ public:
 
         pcl::PointCloud<PointType>::Ptr thisSegmentKeyFrame(new pcl::PointCloud<PointType>()); // for Quatro
         pcl::PointCloud<PointType>::Ptr voxSegKeyFrame(new pcl::PointCloud<PointType>());
-        // voxelize(segmentedCloud, voxSegKeyFrame, voxel_size);
-        // pcl::copyPointCloud(*voxSegKeyFrame, *thisSegmentKeyFrame);
-        // segmentCloudKeyFrames.push_back(thisSegmentKeyFrame);
-        pcl::copyPointCloud(*segmentedCloud, *thisSegmentKeyFrame);
+        voxelize(segmentedCloud, voxSegKeyFrame, voxel_size);
+        pcl::copyPointCloud(*voxSegKeyFrame, *thisSegmentKeyFrame);
         segmentCloudKeyFrames.push_back(thisSegmentKeyFrame);
+        // pcl::copyPointCloud(*segmentedCloud, *thisSegmentKeyFrame);
+        // segmentCloudKeyFrames.push_back(thisSegmentKeyFrame);
 
 
         pcl::PointCloud<PointType>::Ptr thisCornerKeyFrame(new pcl::PointCloud<PointType>());
