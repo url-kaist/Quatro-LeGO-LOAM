@@ -113,9 +113,13 @@ snap install cloudcompare
 
 ### Compare PointCloud 
 
-|Dataset|PointCloud|
-|:-:|:-:|
-|KITTI 05 seq.|![PointCloud](results/kitti_compare.gif?w=350)|
+![PointCloud](results/kitti_compare.gif?w=350)
+
+- From the gif below, `red : source`, `green : target`, `blue : estimation`.
+![video](results/compare_vid.gif?w=400)
+
+- Even though they are the same Radius Search and ICP parameters, they differ greatly depending on **Quatro's Initial Guess**.
+- Existing Lego-loam does not satisfy the icp threshold due to the distance between src and tgt, but using ICP after Quatro produces much better ICP results.
 
 ### Compare Trajectory with GroundTruth
 - Quatro-Lego-Loam's Trajectory evaluation showed an error of less than **10cm** !!
