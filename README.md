@@ -113,11 +113,11 @@ snap install cloudcompare
 
 ### Compare PointCloud 
 
-- Compare by `CloudCompare`
-![PointCloud](results/kitti_compare.gif?w=400)
+- Compare by `CloudCompare`.
+![PointCloud](results/kitti_compare.gif?w=550)
 
 - From the gif below, `red : source`, `green : target`, `blue : estimation`.
-![video](results/compare_vid.gif?w=400)
+![video](results/compare_vid.gif?w=550)
 
 - Even though they are the same Radius Search and ICP parameters, they differ greatly depending on **Quatro's Initial Guess**.
 - Existing Lego-loam does not satisfy the icp threshold due to the distance between src and tgt, but using ICP after Quatro produces much better ICP results.
