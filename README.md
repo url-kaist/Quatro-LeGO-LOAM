@@ -113,7 +113,7 @@ snap install cloudcompare
 
 ### Compare PointCloud 
 
-![PointCloud](results/kitti_compare.gif?w=350)
+![PointCloud](results/kitti_compare.gif?w=400)
 
 - From the gif below, `red : source`, `green : target`, `blue : estimation`.
 ![video](results/compare_vid.gif?w=400)
