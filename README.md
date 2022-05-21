@@ -53,7 +53,7 @@ roslaunch lego_loam run.launch
 ### KITTI 05 sequence dataset
 - Download KITTI 05 sequence dataset with following command. We already make a rosbag file as an example *(15.6GB)*
 ```
-wget {여기에 URL server link를 넣어주세용}
+wget https://urserver.kaist.ac.kr/publicdata/quatro/kitti_sequence_05.bag
 ```
 
 - You can run the KITTI bag file as follows:
